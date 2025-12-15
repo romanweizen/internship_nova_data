@@ -1,4 +1,3 @@
-# producer_pg_to_kafka.py
 import psycopg2
 from kafka import KafkaProducer
 import json

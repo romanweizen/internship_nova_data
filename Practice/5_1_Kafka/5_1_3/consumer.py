@@ -1,4 +1,3 @@
-# consumer_to_clickhouse.py
 from kafka import KafkaConsumer
 import json
 import clickhouse_connect
@@ -28,4 +27,3 @@ for message in consumer:
     client.command(
         f"INSERT INTO user_logins (username, event_type, event_time) VALUES ('{data['user']}', '{data['event']}', toDateTime({data['timestamp']}))"
     )
-

@@ -5,6 +5,7 @@ import json
 consumer = KafkaConsumer(
     "user_events",
     bootstrap_servers="localhost:9092",
+    group_id="user-logins-consumer",
     auto_offset_reset='earliest',
     enable_auto_commit=True,
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
