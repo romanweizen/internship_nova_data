@@ -1,5 +1,3 @@
-# PostgreSQL → Kafka → ClickHouse (без дубликатов)
-
 ## Описание
 
 Проект демонстрирует простой streaming-pipeline для переноса данных
@@ -58,6 +56,41 @@ PostgreSQL → Kafka (user_events) → ClickHouse
 
 ---
 
+## Установка зависимостей
+
+Для работы проекта требуется Python 3.9+ и Docker.
+
+Рекомендуется использовать виртуальное окружение Python.
+
+### Создание виртуального окружения
+
+```bash
+python -m venv .venv
+```
+
+### Активация виртуального окружения
+
+**Windows**
+```bash
+.venv\Scripts\activate
+```
+
+**Linux / macOS**
+```bash
+source .venv/bin/activate
+```
+
+### Установка Python-зависимостей
+
+```bash
+pip install -r requirements.txt
+```
+
+Файл `requirements.txt` содержит все необходимые библиотеки
+для работы producer и consumer.
+
+---
+
 ## Запуск проекта
 
 ### 1. Поднять инфраструктуру
@@ -66,7 +99,6 @@ docker compose up -d
 ````
 
 ---
-
 
 ### 2. Запустить consumer
 
@@ -127,8 +159,6 @@ SELECT * FROM user_logins;
   Kafka сохраняет прогресс чтения.
 
 ---
-
-## Итог
 
 Реализован устойчивый и воспроизводимый pipeline
 для миграции данных из PostgreSQL в ClickHouse с защитой от дубликатов.
